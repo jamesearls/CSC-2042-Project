@@ -1,0 +1,7 @@
+-- Full Create Script
+
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP SCHEMA `csc2042-g49`;
+
+SET FOREIGN_KEY_CHECKS=1;

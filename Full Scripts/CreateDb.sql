@@ -2,6 +2,9 @@
 
 SET FOREIGN_KEY_CHECKS=0;
 
+CREATE SCHEMA `csc2042-g49`;
+USE `csc2042-g49`;
+
 CREATE TABLE IF NOT EXISTS `building` (
 	`buildingId` INT NOT NULL AUTO_INCREMENT,
 	`address_houseNo` varchar(50) NOT NULL,
