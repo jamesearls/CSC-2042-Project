@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS `skill` (
+	`skillId` INT NOT NULL,
+	`type` varchar(50) NOT NULL,
+PRIMARY KEY (`skillID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
