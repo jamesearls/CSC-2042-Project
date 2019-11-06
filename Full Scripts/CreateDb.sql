@@ -42,4 +42,26 @@ CONSTRAINT `fk_leaseAgreement_apartmentNo` FOREIGN KEY (`apartmentNo`) REFERENCE
 CONSTRAINT `fk_leaseAgreement_managerId` FOREIGN KEY (`managerId`) REFERENCES `manager` (`managerId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `technician` (
+	`employeeId` INT NOT NULL,
+	`skillId` INT NOT NULL,
+PRIMARY KEY (`employeeId`, `skillId`),
+CONSTRAINT `fk_technician_employeeId` FOREIGN KEY (`employeeId`) REFERENCES `employee` (`employeeId`),
+CONSTRAINT `fk_technician_skillId` FOREIGN KEY (`skillId`) REFERENCES `skill` (`skillId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `skill` (
+	`skillId` INT NOT NULL,
+	`type` varchar(50) NOT NULL,
+PRIMARY KEY (`skillID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `employee` (
+	`employeeId` INT NOT NULL,
+	`peopleId` INT NOT NULL,
+	`monthlySalary` Decimal (10,2) NOT NULL,
+PRIMARY KEY (`employeeId`, `peopleId`),
+CONSTRAINT `fk_employee_peopleId` FOREIGN KEY (`peopleId`) REFERENCES `people` (`peopleId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 SET FOREIGN_KEY_CHECKS=1;
