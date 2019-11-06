@@ -64,4 +64,5 @@ PRIMARY KEY (`employeeId`, `peopleId`),
 CONSTRAINT `fk_employee_peopleId` FOREIGN KEY (`peopleId`) REFERENCES `people` (`peopleId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
 SET FOREIGN_KEY_CHECKS=1;
