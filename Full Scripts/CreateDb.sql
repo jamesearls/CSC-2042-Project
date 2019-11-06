@@ -64,5 +64,20 @@ PRIMARY KEY (`employeeId`, `peopleId`),
 CONSTRAINT `fk_employee_peopleId` FOREIGN KEY (`peopleId`) REFERENCES `people` (`peopleId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `tenant` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`peopleId` INT NOT NULL,
+`BankAccountNo` varchar(12) DEFAULT NULL,
+`IsActive` BIT(1) DEFAULT b'1',
+PRIMARY KEY(`Id`),
+CONSTRAINT `fk_tenant_people`FOREIGN KEY(`peopleID`) REFERENCES `people`(`peopleID`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8; 
+
+CREATE TABLE IF NOT EXISTS `leaseTenant`(
+`tenantId` INT NOT NULL,
+`leaseId` INT NOT NULL,
+CONSTRAINT `fk_leasetenant_tenant` FOREIGN KEY(`tenantId`) REFERENCES `tenant`(`id`),
+CONSTRAINT `fk_leaseTenant_lease` FOREIGN KEY(`leaseId`) references `leaseAgreement`(`leaseAgreementId`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 SET FOREIGN_KEY_CHECKS=1;
