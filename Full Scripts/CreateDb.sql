@@ -81,7 +81,7 @@ CONSTRAINT `fk_leasetenant_tenantId` FOREIGN KEY(`tenantId`) REFERENCES `tenant`
 CONSTRAINT `fk_leaseTenant_leaseAgreementId` FOREIGN KEY(`leaseAgreementId`) references `leaseAgreement`(`leaseAgreementId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `contactInfo` (
+CREATE TABLE IF NOT EXISTS `contactInfo` (
   `contactInfoId` INT NOT NULL AUTO_INCREMENT,
   `peopleId` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
@@ -92,7 +92,7 @@ CREATE TABLE `contactInfo` (
   CONSTRAINT `fk_contactInfo_peopleId` FOREIGN KEY(`peopleId`) REFERENCES `people`(`peopleId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `people` (
+CREATE TABLE IF NOT EXISTS `people` (
   `peopleId` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `firstName` VARCHAR(20) NOT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE `people` (
   PRIMARY KEY (`peopleId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `guestTenant` (
+CREATE TABLE IF NOT EXISTS `guestTenant` (
   `guestTenantId` INT NOT NULL AUTO_INCREMENT,
   `duration` INT NOT NULL,
   `apartmentNo` INT NOT NULL,
