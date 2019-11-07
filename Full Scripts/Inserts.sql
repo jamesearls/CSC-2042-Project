@@ -40,4 +40,24 @@ INSERT IGNORE INTO `skill` (`skillId`,`type`) VALUES
 	(10,'Gardening'),
 	(11,'Managing');
     
+-- GuestTenant
+INSERT IGNORE INTO guestTenant 
+    (guestTenantId, duration, apartmentNo)
+    VALUES 
+    (1,10,1),
+    (2,15,2),
+    (3,12,3),
+    (4,20,4),
+    (5,5,5);
+
+-- Manager
+INSERT IGNORE INTO manager
+    (managerId, employeeID, apartmentNo, buildingId)
+    VALUES
+    (1, 10, 1, 1),
+    (2, 11, 2, 1),
+    (3, 12, 3, 1),
+    (4, 13, 4, 2),
+    (5, 14, 5, 2);
+
 SET FOREIGN_KEY_CHECKS=1;
