@@ -60,4 +60,23 @@ INSERT IGNORE INTO manager
     (4, 13, 4, 2),
     (5, 14, 5, 2);
 
+-- Tenant
+INSERT IGNORE INTO tenant 
+    (tenantId, peopleId, bankAccountNo, isActive)
+    VALUES 
+    (1,1,0293846382,1),
+    (2,2,0382628618,1),
+    (3,3,0309382717,1),
+    (4,4,0432432732,0),
+    (5,5,0543284739,0);
+
+-- LeaseTenant
+INSERT IGNORE INTO leaseTenant 
+    (tenantId, leaseAgreementId)
+    VALUES 
+    (1,1),
+    (2,1),
+    (3,2),
+    (4,4),
+    (5,5);
 SET FOREIGN_KEY_CHECKS=1;
