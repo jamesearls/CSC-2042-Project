@@ -80,4 +80,37 @@ CONSTRAINT `fk_leasetenant_tenant` FOREIGN KEY(`tenantId`) REFERENCES `tenant`(`
 CONSTRAINT `fk_leaseTenant_lease` FOREIGN KEY(`leaseId`) references `leaseAgreement`(`leaseAgreementId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `ContactInfo` (
+  `Id` int(11) NOT NULL,
+  `PeopleId` int(11) NOT NULL,
+  `Name` varchar(45) NOT NULL,
+  `FirstName` varchar(20) NOT NULL,
+  `LastName` varchar(20) NOT NULL,
+  `TeleNumber` int(11) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `People` (
+  `Id` int(11) NOT NULL,
+  `Name` varchar(45) NOT NULL,
+  `FirstName` varchar(20) NOT NULL,
+  `LastName` varchar(20) NOT NULL,
+  `ContactInfo_Id` int(11) NOT NULL,
+  PRIMARY KEY (`Id`,`ContactInfo_Id`),
+  KEY `fk_People_ContactInfo_idx` (`ContactInfo_Id`),
+  CONSTRAINT `fk_People_ContactInfo` FOREIGN KEY (`ContactInfo_Id`) REFERENCES `ContactInfo` (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `guestTenant` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Duration` int(11) NOT NULL,
+  `ApartmentNo` int(11) NOT NULL,
+  `buildingId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_guestTenant_apartmentNo` (`ApartmentNo`),
+  KEY `fk_guestTenant_buildingId` (`buildingId`),
+  CONSTRAINT `fk_guestTenant_apartmentNo` FOREIGN KEY (`ApartmentNo`) REFERENCES `apartment` (`apartmentNo`),
+  CONSTRAINT `fk_guestTenant_buildingId` FOREIGN KEY (`buildingId`) REFERENCES `apartment` (`buildingId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 SET FOREIGN_KEY_CHECKS=1;
