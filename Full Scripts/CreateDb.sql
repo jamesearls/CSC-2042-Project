@@ -15,6 +15,17 @@ CREATE TABLE IF NOT EXISTS `building` (
 PRIMARY KEY (`buildingId`) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `manager` (
+    `managerId` INT NOT NULL AUTO_INCREMENT,
+    `employeeId` INT NOT NULL,
+    `apartmentNo` INT NOT NULL,
+    `buildingId` INT NOT NULL,
+    PRIMARY KEY (managerId),
+    CONSTRAINT `fk_manager_employeeId` FOREIGN KEY (employeeId) REFERENCES `employee`(employeeId),
+    CONSTRAINT `fk_manager_apartmentNo` FOREIGN KEY (apartmentNo) REFERENCES `apartment`(apartmentNo),
+    CONSTRAINT `fk_manager_buildingId` FOREIGN KEY (buildingId) REFERENCES `apartment`(buildingId)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;    
+
 CREATE TABLE IF NOT EXISTS `apartment` (
 	`apartmentNo` INT NOT NULL,
 	`buildingId` INT NOT NULL,
