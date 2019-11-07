@@ -1,4 +1,6 @@
 -- Queries
+
+-- Find a list of technicians that currently live in an apartment
 SELECT 
     p.`firstName` as 'First Name',
     p.`lastName` as 'Last Name'
@@ -19,4 +21,3 @@ WHERE
             technician t)
         AND t.isActive = 1
         AND la.isActive = 1;
-
