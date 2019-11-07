@@ -95,9 +95,8 @@ CONSTRAINT `fk_leaseTenant_leaseAgreementId` FOREIGN KEY(`leaseAgreementId`) ref
 CREATE TABLE IF NOT EXISTS `contactInfo` (
   `contactInfoId` INT NOT NULL AUTO_INCREMENT,
   `peopleId` INT NOT NULL,
-  `name` VARCHAR(45) NOT NULL,
-  `firstName` VARCHAR(20) NOT NULL,
-  `lastName` VARCHAR(20) NOT NULL,
+  `name_firstName` VARCHAR(45) NOT NULL,
+  `lname_astName` VARCHAR(45) NOT NULL,
   `teleNumber` INT NOT NULL,
   PRIMARY KEY (`contactInfoId`),
   CONSTRAINT `fk_contactInfo_peopleId` FOREIGN KEY(`peopleId`) REFERENCES `people`(`peopleId`)
@@ -105,9 +104,8 @@ CREATE TABLE IF NOT EXISTS `contactInfo` (
 
 CREATE TABLE IF NOT EXISTS `people` (
   `peopleId` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
-  `firstName` VARCHAR(20) NOT NULL,
-  `lastName` VARCHAR(20) NOT NULL,
+  `name_firstName` VARCHAR(45) NOT NULL,
+  `name_lastName` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`peopleId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
