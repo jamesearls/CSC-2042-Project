@@ -20,10 +20,10 @@ CREATE TABLE IF NOT EXISTS `manager` (
     `employeeId` INT NOT NULL,
     `apartmentNo` INT NOT NULL,
     `buildingId` INT NOT NULL,
-    PRIMARY KEY (managerId),
-    CONSTRAINT `fk_manager_employeeId` FOREIGN KEY (employeeId) REFERENCES `employee`(employeeId),
-    CONSTRAINT `fk_manager_apartmentNo` FOREIGN KEY (apartmentNo) REFERENCES `apartment`(apartmentNo),
-    CONSTRAINT `fk_manager_buildingId` FOREIGN KEY (buildingId) REFERENCES `apartment`(buildingId)
+    PRIMARY KEY (`managerId`),
+    CONSTRAINT `fk_manager_employeeId` FOREIGN KEY (`employeeId`) REFERENCES `employee`(`employeeId`),
+    CONSTRAINT `fk_manager_apartmentNo` FOREIGN KEY (`apartmentNo`) REFERENCES `apartment`(`apartmentNo`),
+    CONSTRAINT `fk_manager_buildingId` FOREIGN KEY (`buildingId`) REFERENCES `apartment`(`buildingId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;    
 
 CREATE TABLE IF NOT EXISTS `apartment` (
@@ -80,14 +80,14 @@ CREATE TABLE IF NOT EXISTS `tenant` (
 `peopleId` INT NOT NULL,
 `bankAccountNo` VARCHAR(8) DEFAULT NULL, -- Sort code?
 `isActive` BIT(1) DEFAULT b'1',
-PRIMARY KEY(`Id`),
+PRIMARY KEY(`tenantId`),
 CONSTRAINT `fk_tenant_peopleId`FOREIGN KEY(`peopleId`) REFERENCES `people`(`peopleId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8; 
 
 CREATE TABLE IF NOT EXISTS `leaseTenant`(
 `tenantId` INT NOT NULL,
 `leaseAgreementId` INT NOT NULL,
-PRIMARY KEY (`tenantId`, `leaseId`),
+PRIMARY KEY (`tenantId`, `leaseAgreementId`),
 CONSTRAINT `fk_leasetenant_tenantId` FOREIGN KEY(`tenantId`) REFERENCES `tenant`(`tenantId`),
 CONSTRAINT `fk_leaseTenant_leaseAgreementId` FOREIGN KEY(`leaseAgreementId`) references `leaseAgreement`(`leaseAgreementId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -52,7 +52,7 @@ INSERT IGNORE INTO guestTenant
 
 -- Manager
 INSERT IGNORE INTO manager
-    (managerId, employeeID, apartmentNo, buildingId)
+	(managerId, employeeID, apartmentNo, buildingId)
     VALUES
     (1, 10, 1, 1),
     (2, 11, 2, 1),
