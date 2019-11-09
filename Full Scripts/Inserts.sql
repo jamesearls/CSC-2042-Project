@@ -42,7 +42,7 @@ INSERT IGNORE INTO `skill` (`skillId`,`type`) VALUES
     
 -- GuestTenant
 INSERT IGNORE INTO guestTenant 
-    (guestTenantId, duration, apartmentNo)
+    (guestTenantId, duration, apartmentNo, buildingId)
     VALUES 
     (1,10,1,1),
     (2,15,2,2),
