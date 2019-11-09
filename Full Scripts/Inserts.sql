@@ -28,17 +28,9 @@ INSERT IGNORE INTO `apartment` (`apartmentNo`,`buildingId`,`managerId`,`noOfBedr
 
 -- Skill
 INSERT IGNORE INTO `skill` (`skillId`,`type`) VALUES 
-	(1,'Plumbing'),
+	(1,'Electrical'),
 	(2,'Carpentry'),
-	(3,'Joinery'),
-	(4,'Wiring'),
-	(5,'Engineering'),
-	(6,'Fabricating'),
-	(7,'Repairing'),
-	(8,'Welding'),
-	(9,'Computing'),
-	(10,'Gardening'),
-	(11,'Managing');
+	(3,'Plumbing');
     
 -- GuestTenant
 INSERT IGNORE INTO guestTenant 
