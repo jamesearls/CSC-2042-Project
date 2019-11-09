@@ -44,11 +44,11 @@ INSERT IGNORE INTO `skill` (`skillId`,`type`) VALUES
 INSERT IGNORE INTO guestTenant 
     (guestTenantId, duration, apartmentNo)
     VALUES 
-    (1,10,1),
-    (2,15,2),
-    (3,12,3),
-    (4,20,4),
-    (5,5,5);
+    (1,10,1,1),
+    (2,15,2,2),
+    (3,12,3,3),
+    (4,20,4,4),
+    (5,5,5,5);
 
 -- Manager
 INSERT IGNORE INTO manager
