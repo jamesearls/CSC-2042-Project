@@ -35,3 +35,17 @@ WHERE leaseAgreement.isActive = true
 -- make the attribute headings more user friendly. I then joined leaseAgreement to leaseTenant  in order to find Tenants whose 
 -- leases are active and building to leaseAgreement in order to retrieve the address of the building. I have also grouped the
 -- results by buildingId and ordred them by alphabetical order of the address 
+
+
+--Getting all of the GuestTenantID, ApartmentNo, BuildingId, TeleNum, FirstName, LastName & Formatting
+SELECT guestTenant.guestTenantId AS GuestID, 
+       apartment.apartmentNo AS ApartmentNumber, 
+       building.buildingId AS BuildingID, 
+       contactInfo.teleNumber AS Telephone_Number, 
+       contactInfo.name_firstName AS FirstName, 
+       contactInfo.lname_astName AS LastName 
+FROM guestTenant 
+       LEFT JOIN apartment ON guestTenant.apartmentNo = apartment.apartmentNo 
+       LEFT JOIN building ON guestTenant.buildingId = building. buildingId 
+       LEFT JOIN contactInfo ON guestTenant.guestTenantId = contactInfo.contactInfoId 
+ORDER BY guestTenant.guestTenantId ASC;
