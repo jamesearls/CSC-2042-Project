@@ -78,6 +78,7 @@ VALUES
     (4,4),
     (5,5);
     
+-- LeaseAgreement
 INSERT INTO `leaseAgreement` (`leaseAgreementId`,`managerId`,`startDate`,
 	`duration`,`monthlyRent`,`buildingId`,`apartmentNo`,`isActive`)
 VALUES
@@ -85,5 +86,20 @@ VALUES
 	(2,1,'2001-10-19 00:00:00',12,300,1,1,'1'),
 	(3,2,'2001-10-19 00:00:00',3,220,2,2,'1'),
 	(4,5,'2001-10-19 00:00:00',6,200,3,1,'1');
+
+-- Technician
+INSERT IGNORE INTO `technician`
+    (`employeeId`, `skillId`)
+VALUES
+    (1,1),
+    (2,2),
+    (3,3),
+    (4,2),
+    (5,1),
+    (6,2),
+    (7,1),
+    (8,2),
+    (9,3),
+    (10,2);
     
 SET FOREIGN_KEY_CHECKS=1;
