@@ -65,10 +65,12 @@ FROM guestTenant
 ORDER BY guestTenant.guestTenantId ASC;
 
 --Group average monthly salary by skill
+
 SELECT 
     technician.skillId,
-    skill.type,
-    AVG(monthlySalary) AS Average_Salary_for_skill_type
+    skill.type AS Skill,
+    COUNT(employee.employeeId) AS Number_Of_Skilled_Employees,
+    ROUND(AVG(monthlySalary) , 2) AS Average_Salary_for_skill_type
 FROM
     employee
         INNER JOIN
@@ -76,5 +78,5 @@ FROM
         INNER JOIN
     skill ON technician.skillId = skill.skillId
 GROUP BY skill.type
-ORDER BY skillId;
+ORDER BY COUNT(employeeId) DESC;
 
