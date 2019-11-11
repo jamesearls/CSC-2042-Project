@@ -73,4 +73,19 @@ INSERT IGNORE INTO leaseTenant
     (4,4),
     (5,5);
     
+-- Technician
+INSERT IGNORE INTO `technician`
+    (tenantId, skillId)
+    values
+    (1,1),
+    (2,2),
+    (3,3),
+    (4,2),
+    (5,1),
+    (6,2),
+    (7,1),
+    (8,2),
+    (9,3),
+    (10,2);
+    
 SET FOREIGN_KEY_CHECKS=1;
