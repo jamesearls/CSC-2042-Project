@@ -111,12 +111,14 @@ CREATE TABLE IF NOT EXISTS `people` (
 
 CREATE TABLE IF NOT EXISTS `guestTenant` (
   `guestTenantId` INT NOT NULL AUTO_INCREMENT,
+  `tenantId` INT NOT NULL,
   `duration` INT NOT NULL,
   `apartmentNo` INT NOT NULL,
   `buildingId` INT NOT NULL,
   PRIMARY KEY (`guestTenantId`),
   CONSTRAINT `fk_guestTenant_apartmentNo` FOREIGN KEY (`apartmentNo`) REFERENCES `apartment` (`apartmentNo`),
-  CONSTRAINT `fk_guestTenant_buildingId` FOREIGN KEY (`buildingId`) REFERENCES `apartment` (`buildingId`)
+  CONSTRAINT `fk_guestTenant_buildingId` FOREIGN KEY (`buildingId`) REFERENCES `apartment` (`buildingId`),
+  CONSTRAINT `fk_guestTenant_tenantId` FOREIGN KEY (`tenantId`) REFERENCES `tenant` (`tenantId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 SET FOREIGN_KEY_CHECKS=1;
