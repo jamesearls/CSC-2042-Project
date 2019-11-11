@@ -1,9 +1,10 @@
 -- Queries
+USE `csc2042-g49`;
 
 -- Find a list of technicians that currently live in an apartment
 SELECT 
-    p.`firstName` as 'First Name',
-    p.`lastName` as 'Last Name'
+    people.`firstName` as 'First Name',
+    people.`lastName` as 'Last Name'
 FROM
     people p
         INNER JOIN

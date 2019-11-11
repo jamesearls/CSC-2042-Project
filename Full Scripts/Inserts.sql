@@ -1,6 +1,7 @@
 -- Inserts
 
 SET FOREIGN_KEY_CHECKS=0;
+USE `csc2042-g49`;
 
 -- Building
 INSERT IGNORE INTO `building` (`buildingId`, `address_houseNo`, `address_addressLine1`, `address_addressLine2`, `address_city`, `postcode`) values  
@@ -71,4 +72,5 @@ INSERT IGNORE INTO leaseTenant
     (3,2),
     (4,4),
     (5,5);
+    
 SET FOREIGN_KEY_CHECKS=1;
