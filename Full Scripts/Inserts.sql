@@ -102,4 +102,21 @@ VALUES
     (9,3),
     (10,2);
     
+-- Employee
+
+INSERT IGNORE INTO employee 
+    (employeeId,peopleId,monthlySalary)
+VALUES
+    (1,1,676.90),
+    (2,2,213.50),
+    (3,3,543.44),
+    (4,4,532.00),
+    (5,5,777.94),
+    (6,6,633.00),
+    (7,7,235.00),
+    (8,8,865.00),
+    (9,9,546.00),
+    (10,10,434.99);
+
+    
 SET FOREIGN_KEY_CHECKS=1;
