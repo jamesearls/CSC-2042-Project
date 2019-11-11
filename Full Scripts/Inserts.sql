@@ -103,9 +103,8 @@ VALUES
     (10,2);
     
 -- Employee
-
-INSERT IGNORE INTO employee 
-    (employeeId,peopleId,monthlySalary)
+INSERT IGNORE INTO `employee` 
+    (`employeeId`,`peopleId`,`monthlySalary`)
 VALUES
     (1,1,676.90),
     (2,2,213.50),
