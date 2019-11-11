@@ -3,17 +3,24 @@ USE `csc2042-g49`;
 
 -- Find a list of technicians that currently live in an apartment
 SELECT 
-    people.`firstName` as 'First Name',
-    people.`lastName` as 'Last Name'
+    e.`employeeId` AS 'Employee ID',
+    p.`name_firstName` AS 'First Name',
+    p.`name_lastName` AS 'Last Name',
+    (e.`monthlySalary` - (la.`monthlyRent` / (SELECT 
+            COUNT(`tenantId`)
+        FROM
+            leaseTenant
+        WHERE
+            `leaseAgreementId` = la.`leaseAgreementId`))) AS 'Salary After Rent'
 FROM
     people p
         INNER JOIN
     employee e ON p.peopleId = e.peopleId
         INNER JOIN
     tenant t ON p.peopleId = t.peopleId
-		INNER JOIN
+        INNER JOIN
     leaseTenant lt ON lt.tenantId = t.tenantId
-		INNER JOIN
+        INNER JOIN
     leaseAgreement la ON la.leaseAgreementId = lt.leaseAgreementId
 WHERE
     e.employeeId IN (SELECT DISTINCT
@@ -21,7 +28,8 @@ WHERE
         FROM
             technician t)
         AND t.isActive = 1
-        AND la.isActive = 1;
+        AND la.isActive = 1
+ORDER BY p.peopleId ASC;
 
 -- Create a query to find the number of active tenants in each building and display the results under a column named "Number of Tennants"
 SELECT 
@@ -43,7 +51,7 @@ ORDER BY building.address_addressLine1;
 -- results by buildingId and ordred them by alphabetical order of the address 
 
 
---Getting all of the GuestTenantID, ApartmentNo, BuildingId, TeleNum, FirstName, LastName & Formatting
+-- Getting all of the GuestTenantID, ApartmentNo, BuildingId, TeleNum, FirstName, LastName & Formatting
 SELECT guestTenant.guestTenantId AS GuestID, 
        apartment.apartmentNo AS ApartmentNumber, 
        building.buildingId AS BuildingID, 
