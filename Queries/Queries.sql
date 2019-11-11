@@ -50,7 +50,6 @@ ORDER BY building.address_addressLine1;
 -- leases are active and building to leaseAgreement in order to retrieve the address of the building. I have also grouped the
 -- results by buildingId and ordred them by alphabetical order of the address 
 
-
 -- Getting all of the GuestTenantID, ApartmentNo, BuildingId, TeleNum, FirstName, LastName & Formatting
 SELECT guestTenant.guestTenantId AS GuestID, 
        apartment.apartmentNo AS ApartmentNumber, 
