@@ -52,13 +52,14 @@ ORDER BY building.address_addressLine1;
 
 -- Getting all of the GuestTenantID, ApartmentNo, BuildingId, TeleNum, FirstName, LastName & Formatting
 SELECT guestTenant.guestTenantId AS GuestID, 
-       apartment.apartmentNo AS ApartmentNumber, 
-       building.buildingId AS BuildingID, 
-       contactInfo.teleNumber AS Telephone_Number, 
-       contactInfo.name_firstName AS FirstName, 
-       contactInfo.lname_astName AS LastName 
+    apartment.apartmentNo AS ApartmentNumber, 
+    apartment.buildingId AS BuildingID, 
+    contactInfo.teleNumber AS Telephone_Number, 
+    contactInfo.name_firstName AS FirstName, 
+    contactInfo.name_lastName AS LastName 
 FROM guestTenant 
-       INNER JOIN apartment ON guestTenant.apartmentNo = apartment.apartmentNo 
-       INNER JOIN building ON guestTenant.buildingId = apartment.buildingId 
-       LEFT JOIN contactInfo ON guestTenant.guestTenantId = contactInfo.contactInfoId 
+    INNER JOIN apartment ON guestTenant.apartmentNo = apartment.apartmentNo AND guestTenant.buildingId = apartment.buildingId 
+    INNER JOIN tenant ON guestTenant.tenantId = tenant.tenantId 
+    INNER JOIN people ON tenant.peopleId = people.peopleId
+    INNER JOIN contactInfo ON people.peopleId = contactInfo.peopleId 
 ORDER BY guestTenant.guestTenantId ASC;
