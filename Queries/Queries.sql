@@ -63,3 +63,18 @@ FROM guestTenant
     INNER JOIN people ON tenant.peopleId = people.peopleId
     INNER JOIN contactInfo ON people.peopleId = contactInfo.peopleId 
 ORDER BY guestTenant.guestTenantId ASC;
+
+--Group average monthly salary by skill
+SELECT 
+    technician.skillId,
+    skill.type,
+    AVG(monthlySalary) AS Average_Salary_for_skill_type
+FROM
+    employee
+        INNER JOIN
+    technician ON employee.employeeId = technician.employeeId
+        INNER JOIN
+    skill ON technician.skillId = skill.skillId
+GROUP BY skill.type
+ORDER BY skillId;
+
