@@ -56,9 +56,9 @@ SELECT guestTenant.guestTenantId AS GuestID,
        building.buildingId AS BuildingID, 
        contactInfo.teleNumber AS Telephone_Number, 
        contactInfo.name_firstName AS FirstName, 
-       contactInfo.lname_astName AS LastName 
+       contactInfo.name_lastName AS LastName 
 FROM guestTenant 
        INNER JOIN apartment ON guestTenant.apartmentNo = apartment.apartmentNo 
        INNER JOIN building ON guestTenant.buildingId = apartment.buildingId 
-       LEFT JOIN contactInfo ON guestTenant.guestTenantId = contactInfo.contactInfoId 
+       INNER JOIN contactInfo ON guestTenant.guestTenantId = contactInfo.contactInfoId 
 ORDER BY guestTenant.guestTenantId ASC;

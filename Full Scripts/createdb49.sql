@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `contactInfo` (
   `contactInfoId` INT NOT NULL AUTO_INCREMENT,
   `peopleId` INT NOT NULL,
   `name_firstName` VARCHAR(45) NOT NULL,
-  `lname_astName` VARCHAR(45) NOT NULL,
+  `name_lastName` VARCHAR(45) NOT NULL,
   `teleNumber` INT NOT NULL,
   PRIMARY KEY (`contactInfoId`),
   CONSTRAINT `fk_contactInfo_peopleId` FOREIGN KEY(`peopleId`) REFERENCES `people`(`peopleId`)

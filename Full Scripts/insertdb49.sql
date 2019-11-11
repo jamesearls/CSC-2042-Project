@@ -128,7 +128,7 @@ VALUES
 
 -- ContactInfo
 INSERT INTO `contactInfo` (`contactInfoId`,`peopleId`,
-	`name_firstName`,`lname_astName`,`teleNumber`)
+	`name_firstName`,`name_lastName`,`teleNumber`)
 VALUES
 (11,1,'Joe','Bill','028 9018 0733'),
 (12,2,'Andrew','Killian','028 9018 0642'),
