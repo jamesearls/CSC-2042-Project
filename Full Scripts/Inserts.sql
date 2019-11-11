@@ -75,8 +75,8 @@ VALUES
     (1,1),
     (2,1),
     (3,2),
-    (4,4),
-    (5,5);
+    (4,3),
+    (5,4);
     
 -- LeaseAgreement
 INSERT INTO `leaseAgreement` (`leaseAgreementId`,`managerId`,`startDate`,
@@ -116,6 +116,25 @@ VALUES
     (8,8,865.00),
     (9,9,546.00),
     (10,10,434.99);
+    
+-- People
+INSERT INTO `people` (`peopleId`,`name_firstName`,`name_lastName`)
+VALUES 
+(1,'Regina','Philangie'),
+(2,'Ken','Adams'),
+(3,'Bryan','Adams'),
+(4,'Jonathan','Smith'),
+(5,'Bruno','Frogg');
 
+-- ContactInfo
+INSERT INTO `contactInfo` (`contactInfoId`,`peopleId`,
+	`name_firstName`,`lname_astName`,`teleNumber`)
+VALUES
+(11,1,'Joe','Bill','028 9018 0733'),
+(12,2,'Andrew','Killian','028 9018 0642'),
+(13,3,'Troy','Ocelote','028 9018 0132'),
+(14,4,'Johnson','Johnson','028 9018 0852'),
+(15,5,'Michael','Oxmaul','028 9018 0827'),
+(16,5,'Ben','Dover','028 9018 0378');
     
 SET FOREIGN_KEY_CHECKS=1;
