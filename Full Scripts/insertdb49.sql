@@ -40,13 +40,13 @@ VALUES
     
 -- GuestTenant
 INSERT IGNORE INTO `guestTenant` 
-    (`guestTenantId`, `duration`, `apartmentNo`, `buildingId`)
+    (`tenantId`,`guestTenantId`, `duration`, `apartmentNo`, `buildingId`)
 VALUES 
-    (1,10,1,1),
-    (2,15,2,2),
-    (3,12,3,3),
-    (4,20,4,4),
-    (5,5,5,5);
+    (1,1,10,1,1),
+    (2,2,15,2,2),
+    (3,3,12,3,3),
+    (4,4,20,4,4),
+    (5,5,5,5,5);
 
 -- Manager
 INSERT IGNORE INTO `manager`
