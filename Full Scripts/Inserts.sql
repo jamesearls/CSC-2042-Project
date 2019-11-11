@@ -75,7 +75,7 @@ INSERT IGNORE INTO leaseTenant
     
 -- Technician
 INSERT IGNORE INTO `technician`
-    (tenantId, skillId)
+    (employeeId, skillId)
     values
     (1,1),
     (2,2),
